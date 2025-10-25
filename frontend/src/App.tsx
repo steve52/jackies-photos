@@ -1,21 +1,14 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-
-type Tag = {
-  id: string;
-  name: string;
-  value: string;
-};
+import { getTags, type Tag } from "./api";
 
 function App() {
   const [tags, setTags] = useState<Tag[]>([]);
 
   useEffect(() => {
-    fetch("api/tags")
-      .then((res) => res.json())
-      .then((data) => {
-        setTags(data);
-      });
+    getTags().then((data) => {
+      setTags(data);
+    });
   }, []);
 
   return (
