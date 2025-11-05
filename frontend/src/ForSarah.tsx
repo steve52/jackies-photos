@@ -1,35 +1,69 @@
 import { useEffect, useState } from "react";
-import { getTags, searchByTags } from "./api";
+import { getTags, getTotalImageCount, searchByTags } from "./api";
 import type { AssetResponseDto, TagResponseDto } from "@immich/sdk";
+import { AutoComplete } from "antd";
 
 const ForSarah = () => {
   const [tags, setTags] = useState<TagResponseDto[]>([]);
+  const [total, setTotal] = useState<number>();
+  const [selectedTags, setSelectedTags] = useState<TagResponseDto[]>([]);
   const [assets, setAssets] = useState<AssetResponseDto[]>([]);
 
   useEffect(() => {
     getTags().then((data) => {
       setTags(data);
     });
-  }, []);
-
-  useEffect(() => {
-    searchByTags(tags).then((data) => {
-      console.log("~~~ data", data);
-      setAssets(data.items);
+    getTotalImageCount().then((data) => {
+      setTotal(data.total);
     });
   }, []);
 
-  const onAddTag = (e) => {
-    console.log("~~~ onAddTag", e);
+  useEffect(() => {
+    searchByTags(selectedTags).then((data) => {
+      console.log("~~~ data", data);
+      setAssets(data.items);
+    });
+  }, [selectedTags]);
+
+  const onAddTag = (tag: string) => {
+    const tagObj = tags.find((t) => t.name === tag);
+    if (tagObj) {
+      setSelectedTags(selectedTags.concat(tagObj));
+    }
   };
 
   return (
     <>
       <h1>For Sarah</h1>
-      <input onSubmit={onAddTag} />
-      <button>Clear all</button>
-
-      {assets[0]?.id && <img src={`/api/assets/${assets[0]?.id}/thumbnail`} />}
+      <AutoComplete
+        options={tags}
+        style={{ width: 200 }}
+        onSelect={onAddTag}
+        onSearch={(text) => {
+          const filteredTags = tags.filter((t) => t.name.startsWith(text));
+          console.log("~~~ filteredTags", filteredTags);
+          return filteredTags;
+        }}
+      />
+      <br></br>
+      <button
+        onClick={() => {
+          setSelectedTags([]);
+        }}
+      >
+        Clear all
+      </button>
+      {assets.length}/{total}
+      selectedTags: {selectedTags.length}
+      <ul>
+        {assets.map((asset) => {
+          return (
+            <li>
+              <img src={`/api/assets/${asset.id}/thumbnail`} />
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 };
