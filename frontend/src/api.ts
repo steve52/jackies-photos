@@ -1,4 +1,4 @@
-import { type SearchAssetResponseDto, type SearchResponseDto, type TagResponseDto } from "@immich/sdk";
+import { type SearchAssetResponseDto, type SearchResponseDto, type SearchStatisticsResponseDto, type TagResponseDto } from "@immich/sdk";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -20,3 +20,10 @@ export const searchByTags = async (tags: TagResponseDto[]): Promise<SearchAssetR
       });
 }
 
+export const getTotalImageCount = async (): Promise<SearchStatisticsResponseDto> => {
+  return fetch(`${API_BASE_URL}/search/statistics`, {method: "POST", body:JSON.stringify({"type": "IMAGE"})})
+      .then((res) => res.json())
+      .then((data:  SearchStatisticsResponseDto) => {
+        return data
+      });
+}
