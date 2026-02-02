@@ -76,6 +76,9 @@ const Header = ({ tags, addTag, removeTag, selectedTags }: HeaderPropsType) => {
             <h1 className={styles.pageHeadingTitle}>For Sarah</h1>
           </div>
         )}
+        {!showSearchBar && (
+          <span className={styles.pageHeadingYears}>1930-2006</span>
+        )}
       </div>
       <TagList
         tags={selectedTags}

@@ -1,20 +1,13 @@
+:root {
+  --black: #090909;
+  --link-color: #090909;
+  --link-hover-color: #655E5E;
+}
+
 body {
   font-family: InterRegular, Arial, Helvetica, sans-serif;
   margin: 0;
-}
-
-.img {
-  width: 100%;
-}
-
-.photo-tiles {
-  margin: 0 50px;
-}
-
-.clear-button-floater {
-  position: sticky;
-  bottom: 0;
-  left: 0;
+  color: var(--black)
 }
 
 

@@ -14,9 +14,13 @@
 
 .closeBtn {
   font-size: 0.875rem; // 14px
+  color: var(--link-color);
   height: 1.5rem; // 24px
   width: 1.5rem; // 24px
   border: none;
   background: none;
   cursor: pointer;
+  &:hover {
+    color: var(--link-hover-color);
+  }
 }

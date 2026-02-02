@@ -1,0 +1,13 @@
+.button {
+  font-family: InterRegular, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: var(--link-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  &:hover {
+    color: var(--link-hover-color);
+  }
+}

@@ -1,5 +1,5 @@
 .header {
-  margin: 64px 0 96px;
+  margin: 3.4375rem 0 5.75rem; //55px 0 92px
 }
 
 .searchAndTitleWrapper {
@@ -33,22 +33,38 @@
   margin: 0;
 }
 
+.pageHeadingYears {
+  font-family: InterBold, Arial, Helvetica, sans-serif;
+  font-size: 1.125rem; // 18px
+  margin: 0 3.75rem 0 auto; // 60px
+}
+
 .searchBtn {
   height: 44px;
   width: 44px;
   font-size: 2rem; // 32px
+  color: var(--link-color);
   border: none;
   background: none;
   cursor: pointer;
+
+  &:hover {
+    color: var(--link-hover-color)
+  }
 }
 
 .closeBtn {
   font-size: 0.875rem; // 14px
+  color: var(--link-color);
   height: 1.5rem; // 24px
   width: 1.5rem; // 24px
   border: none;
   background: none;
   cursor: pointer;
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
 }
 
 .searchInput {
@@ -84,7 +100,7 @@
     &.noMatchingTags{
       background-color: #F5E8EC;
     } 
-    
+
     .searchInput {
       display: block;
     }

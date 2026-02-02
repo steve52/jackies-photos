@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { getTags, getTotalImageCount, searchByTags } from "./api";
+import { getTags, getTotalImageCount, searchByTags } from "../api";
 import type { AssetResponseDto, TagResponseDto } from "@immich/sdk";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import Header from "./components/Header/Header";
+import Header from "../components/Header/Header";
+import AssetTiles from "../components/AssetTiles/AssetTiles";
+import AssetCount from "../components/AssetCount/AssetCount";
+import ClearFiltersBtn from "../components/ClearFiltersBtn/ClearFiltersBtn";
+import styles from "./Home.module.scss";
 
 const ForSarah = () => {
   const [tags, setTags] = useState<TagResponseDto[]>([]);
@@ -37,6 +40,10 @@ const ForSarah = () => {
     setSelectedTags(newTags);
   };
 
+  const clearFilters = () => {
+    setSelectedTags([]);
+  };
+
   return (
     <div>
       <Header
@@ -45,33 +52,12 @@ const ForSarah = () => {
         removeTag={removeTag}
         selectedTags={selectedTags}
       />
-      <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 2, 750: 2, 900: 2 }}
-        gutterBreakPoints={{ 350: "12px", 750: "30px" }}
-        className="photo-tiles"
-      >
-        <Masonry>
-          {assets.map((asset) => {
-            return (
-              <>
-                <img
-                  src={`/api/assets/${asset.id}/thumbnail`}
-                  className="img"
-                />
-              </>
-            );
-          })}
-        </Masonry>
-      </ResponsiveMasonry>
-      <div className="clear-button-floater">
-        <button
-          onClick={() => {
-            setSelectedTags([]);
-          }}
-        >
-          Clear all
-        </button>
-        {assets.length}/{total}
+
+      <AssetTiles assets={assets} />
+
+      <div className={styles.assetCountAndClearBtn}>
+        <AssetCount count={assets.length} total={total || 0} />
+        <ClearFiltersBtn clearFilters={clearFilters} />
       </div>
     </div>
   );
