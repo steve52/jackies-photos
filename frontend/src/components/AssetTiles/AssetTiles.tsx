@@ -20,7 +20,7 @@ const AssetTiles = ({ assets }: AssetTilesProps) => {
           return (
             <>
               <img
-                src={`${API_BASE_URL}/api/assets/${asset.id}/thumbnail`}
+                src={`${API_BASE_URL}/assets/${asset.id}/thumbnail`}
                 className={styles.thumbnail}
               />
             </>
