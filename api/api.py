@@ -9,7 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": ["https://photos.stevegiordano.com", "https://yugenfotografi.com/"]}})
+CORS(app, resources={r"/*": {"origins": ["https://photos.stevegiordano.dev", "https://yugenfotografi.com"]}})
 
 IMMICH_API_KEY = os.getenv('IMMICH_API_KEY')
 
