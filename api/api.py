@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 import requests
@@ -7,6 +8,8 @@ import json
 load_dotenv()
 
 app = Flask(__name__)
+
+CORS(app, resources={r"/*": {"origins": ["https://photos.stevegiordano.com", "https://yugenfotografi.com/"]}})
 
 IMMICH_API_KEY = os.getenv('IMMICH_API_KEY')
 
