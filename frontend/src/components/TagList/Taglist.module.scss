@@ -1,0 +1,15 @@
+.tagList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 0.625rem; // 10px
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

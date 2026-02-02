@@ -1,0 +1,22 @@
+.tag {
+  display: inline-flex;
+  align-items: baseline;
+  background: white;
+  border-radius: 70px;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  border: none;
+  color: black;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.closeBtn {
+  font-size: 0.875rem; // 14px
+  height: 1.5rem; // 24px
+  width: 1.5rem; // 24px
+  border: none;
+  background: none;
+  cursor: pointer;
+}

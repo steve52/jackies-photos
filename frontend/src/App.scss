@@ -1,66 +1,21 @@
-
-.steve {
-  width: 1262px;
+body {
+  font-family: InterRegular, Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
 .img {
   width: 100%;
 }
 
-
-
-header {
-  margin: 64px 32px 96px;
-}
-
-.page-heading {
-  display: flex;
-  margin-left: 4rem;
-}
-
-.page-heading h1 {
-}
-
-.page-heading_yugen {
-  font-family: Bricolage_Grotesque, sans-serif;
-  font-size: 16px;
-  line-height: 26px;
-}
-
-.page-heading_slash {
-  font-family: InterExtraLight, Arial, Helvetica, sans-serif;
-  font-weight: 200;
-  font-size: 42px;
-  line-height: 100%;
-}
-
-.page-heading_title {
-  font-family: InterExtraLight, Arial, Helvetica, sans-serif;
-  font-weight: 200;
-  font-size: 42px;
-  line-height: 100%;
-  margin: 0;
-}
-
 .photo-tiles {
-  margin: 0 200px;
+  margin: 0 50px;
 }
 
-.tag-search_button {
-  font-size: 2rem;
-  border: none;
-  background: none;
-}
-
-.tag-search_bar {
-  display: none
-}
-
-.tag-search_bar.show {
-  display: block;
-}
 .clear-button-floater {
   position: sticky;
   bottom: 0;
   left: 0;
 }
+
+
+

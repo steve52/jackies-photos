@@ -13,7 +13,7 @@ export const getTags = async (): Promise<TagResponseDto[]> => {
 
 export const searchByTags = async (tags: TagResponseDto[]): Promise<SearchAssetResponseDto> => {
   const tagIds = tags.map(t => t.id)
-  return fetch(`${API_BASE_URL}/search/metadata`, {method: "POST", body:JSON.stringify({tagIds: tagIds})})
+  return fetch(`${API_BASE_URL}/search/metadata`, {method: "POST", body:JSON.stringify({tagIds: tagIds, type: "IMAGE"})})
       .then((res) => res.json())
       .then((data:  SearchResponseDto) => {
         return data.assets

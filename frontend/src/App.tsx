@@ -1,8 +1,8 @@
-import "./App.css";
-import ForSarah from "./ForSarah";
+import "./App.scss";
+import Home from "./Home";
 
 function App() {
-  return <ForSarah />;
+  return <Home />;
 }
 
 export default App;
