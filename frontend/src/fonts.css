@@ -1,23 +1,23 @@
 @font-face {
   font-family: "InterExtraLight";
   src:
-    url("../Inter/static/Inter_18pt-ExtraLight.ttf") format("truetype");
+    url("/Inter/static/Inter_18pt-ExtraLight.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "InterRegular";
   src:
-    url("../Inter/static/Inter_18pt-Regular.ttf") format("truetype");
+    url("/Inter/static/Inter_18pt-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "InterBold";
   src:
-    url("../Inter/static/Inter_18pt-Bold.ttf") format("truetype");
+    url("/Inter/static/Inter_18pt-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Bricolage_Grotesque";
   src:
-    url("../Bricolage_Grotesque/static/BricolageGrotesque-Medium.ttf") format("truetype");
+    url("/Bricolage_Grotesque/static/BricolageGrotesque-Medium.ttf") format("truetype");
 }
