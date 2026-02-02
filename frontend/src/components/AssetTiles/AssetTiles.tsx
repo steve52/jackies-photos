@@ -2,6 +2,8 @@ import type { AssetResponseDto } from "@immich/sdk";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import styles from "./AssetTiles.module.scss";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 type AssetTilesProps = {
   assets: AssetResponseDto[];
 };
@@ -18,7 +20,7 @@ const AssetTiles = ({ assets }: AssetTilesProps) => {
           return (
             <>
               <img
-                src={`/api/assets/${asset.id}/thumbnail`}
+                src={`${API_BASE_URL}/api/assets/${asset.id}/thumbnail`}
                 className={styles.thumbnail}
               />
             </>
