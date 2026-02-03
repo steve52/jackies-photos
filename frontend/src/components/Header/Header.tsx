@@ -1,4 +1,4 @@
-import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
+import { CloseOutlined, MoreOutlined, SearchOutlined } from "@ant-design/icons";
 import type { TagResponseDto } from "@immich/sdk";
 import { AutoComplete } from "antd";
 import { useState } from "react";
@@ -70,14 +70,22 @@ const Header = ({ tags, addTag, removeTag, selectedTags }: HeaderPropsType) => {
           )}
         </div>
         {!showSearchBar && (
-          <div className={styles.pageHeading}>
-            <span className={styles.pageheadingYugen}>yūgen fotografi</span>
-            <span className={styles.pageHeadingSlash}>/</span>
-            <h1 className={styles.pageHeadingTitle}>For Sarah</h1>
-          </div>
-        )}
-        {!showSearchBar && (
-          <span className={styles.pageHeadingYears}>1930-2006</span>
+          <>
+            <div className={styles.pageHeading}>
+              <span className={styles.pageheadingYugen}>yūgen fotografi</span>
+              <span className={styles.pageHeadingSlash}>/</span>
+              <h1 className={styles.pageHeadingTitle}>For Sarah</h1>
+            </div>
+            <span className={styles.pageHeadingYears}>1930-2006</span>
+            <button
+              className={styles.moreBtn}
+              onClick={() => {
+                // setShowSearchBar(false);
+              }}
+            >
+              <MoreOutlined />
+            </button>
+          </>
         )}
       </div>
       <TagList
